@@ -7,7 +7,7 @@
 %% merlin.mbs  (with options: `cite,seq-no,nm-init,ed-au,nmlm,x3,m3,nmft,nmft-sc,yr-brk,xmth,tit-it,jttl-rm,thtit-a,jpg-1,num-xser,pub-date,isbn,issn,url-doi,fin-bare,ppx,ed,abr,mth-bare,xedn,jabr,amper,xand,url,url-blk,nfss,')
 %% ----------------------------------------
 %% *** custom resume citation output ***
-%% 
+%%
 %% Copyright 1994-2011 Patrick W Daly
  % ===============================================================
  % IMPORTANT NOTICE:
@@ -214,7 +214,7 @@ FUNCTION {emphasize}
 FUNCTION {scaps}
 { duplicate$ empty$
     { pop$ "" }
-    { "\textsc{" swap$ * "}" * }
+    { "{" swap$ * "}" * }
   if$
 }
 FUNCTION {bib.name.font}
