@@ -22,3 +22,6 @@
 *.out
 *.synctex.gz
 helvet_test
+*.xdv
+*.fls
+*.fdb_latexmk
