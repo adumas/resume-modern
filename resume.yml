@@ -46,18 +46,24 @@ skills:
 
 experience:
 - company:      Sabbatical
-  years:        'May 2016 \textendash{} August 2017'
+  years:
+    start: 'May 2016'
+    end: 'August 2017'
   position:     World Traveller, Eater of Noodles
   description:  "Peru, Honduras, Taiwan, Thailand, Laos, Vietnam, Cambodia, Malaysia, South Korea"
 - company:      MIT Lincoln Laboratory
   group:        Bioengineering Systems and Technologies Group
-  years:        'July 2012 \textendash{} May 2016'
+  years:
+    start: 'July 2012'
+    end: 'May 2016'
   location:     Lexington, MA
   position:     Associate Technical Staff
   description:  'Biomedical research in several domains involving image \& video processing, machine learning, storage schema and experimental data collection and analysis (equipment setup, multimodal integration, UI design, and generating results \& figures). Introduced version control using git and issue tracking (JIRA) for team development.'
 - company:      Massachusetts General Hospital
-  group:        Hemorrhagic Stroke Research Program and Athinoula A. Martinos Center for Biomedical Imaging
-  years:        'July 2010 \textendash{} July 2012'
+  group:        'Hemorrhagic Stroke Research Program and Athinoula A. Martinos Center for Biomedical Imaging'
+  years:
+    start: 'July 2010'
+    end: 'July 2012'
   location:     Charlestown, MA
   position:     Research Technologist
   description: 'Investigated vascular reactivity in patients with small vessel disease using fMRI to model hemodynamic response. Solely responsible for acquisition of MRI from patients, data QA/storage, creating \& validating analyses and conducting research.'
