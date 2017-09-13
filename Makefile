@@ -46,43 +46,29 @@ out_dir := out
 PANDOC := pandoc --template $(PANDOC_TMPL) $(PANDOC_OPTIONS)
 
 LATEXMK := latexmk $(if $(xelatex),-xelatex,-pdflatex="pdflatex %O %S") \
-    $(if $(latex_quiet),-silent,-verbose) \
-    -outdir=$(temp_dir)
+    $(if $(latex_quiet),-silent,-verbose)
 
 ## ---- build rules ----
 
 ymls := $(filter-out $(addprefix $(yml_dir)/,$(EXCLUDE)),$(wildcard $(yml_dir)/*.yml))
-texs := $(patsubst $(yml_dir)/%.yml,$(out_dir)/%.tex,$(ymls))
-pdfs := $(patsubst $(yml_dir)/%.yml,$(out_dir)/%.pdf,$(ymls))
+texs := $(patsubst %.yml,%.tex,$(ymls))
+pdfs := $(patsubst %.yml,%.pdf,$(ymls))
+#bibs := $(notdir $(wildcard $(yml_dir)/*.bib))
 
-$(texs): $(out_dir)/%.tex: $(yml_dir)/%.yml
-	mkdir -p $(dir $@)
-	$(PANDOC) -o $@ $<
+$(texs): %.tex: %.yml
+	$(PANDOC) -o $@ $<	# pandoc template > .tex
 
 phony_pdfs := $(if $(always_latexmk),$(pdfs) $(notes_pdf))
 
-.PHONY: $(phony_pdfs) all clean reallyclean
+.PHONY: $(phony_pdfs) all clean
+
 $(pdfs): %.pdf: %.tex
-	mkdir -p $(dir $@)
-	cd $(dir $<); $(LATEXMK) $(notdir $<)
-	mv $(dir $@)$(temp_dir)/$(notdir $@) $@
-# $(pdfs): %.pdf: %.tex
-# 	mkdir -p $(dir $@)
-# 	rm -rf $(dir $@)$(temp_dir)
-# 	cd $(dir $<); $(LATEXMK) $(notdir $<)
-# 	mv $(dir $@)$(temp_dir)/$(notdir $@) $@
-# 	rm -r $(dir $@)$(temp_dir)
+	$(LATEXMK) $<
 
 all: $(pdfs)
 
 # clean up everything except final pdfs
 clean:
-	rm -rf $(out_dir)/$(temp_dir)
-	rm -f $(texs)
-
-# clean up everything including pdfs
-reallyclean: clean
-	rm -f $(pdfs)
-	-rmdir $(out_dir)
+	latexmk -c
 
 .DEFAULT_GOAL := all
