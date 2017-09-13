@@ -1,0 +1,311 @@
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper,12pt]{article}
+
+%A Few Useful Packages
+%\usepackage{marvosym}
+\usepackage{fontspec}     %for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[left=1.3cm,
+            top=1.2cm,
+            right=1.3cm,
+            bottom=1.2cm,
+            nohead,
+            nofoot
+            ]{geometry}
+\usepackage{tabularx}
+\usepackage{titlesec}
+%\usepackage{tabto}        % tab spacing
+
+\usepackage{setspace}     % line spacing
+\usepackage{booktabs,colortbl}       % thicker rules between table cells
+\usepackage{bibentry}     % bibliography
+
+% SORTED LISTS
+\usepackage{paralist}
+\usepackage{datatool}% http://ctan.org/pkg/datatool
+\newcommand{\sortitem}[1]{%
+  \DTLnewrow{list}% Create a new entry
+  \DTLnewdbentry{list}{description}{#1}% Add entry as description
+}
+\newenvironment{sortedlist}{%
+  \DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}% Create new/discard old list
+}{%
+  \DTLsort{description}{list}% Sort list
+  \begin{inparaitem}[]%
+    \DTLforeach*{list}{\theDesc=description}{%
+      \item \theDesc, }% Print each item
+  \end{inparaitem}%
+}
+
+%Setup hyperref package, and colours for links
+\usepackage[colorlinks,
+            breaklinks,
+            pagebackref=false,
+            debug=true,
+            xetex,
+            bookmarks=false,
+            pdfpagelabels=false,
+            hyperfootnotes=false,
+            hyperindex=false,
+            pageanchor=false]{hyperref}
+\definecolor{linkcolor}{gray}{0.2}
+\hypersetup{
+  pdfauthor={$name$},
+  pdfsubject={$name$ - Resume},
+  pdftitle={$name$ - Resume},
+  urlcolor=linkcolor,
+  linkcolor=linkcolor
+}
+
+% colors
+\definecolor{dark-gray}{gray}{0.15}
+\definecolor{light-gray}{gray}{0.55}
+
+%FONTS
+\setmainfont{Helvetica}
+\newfontfamily{\hlight}[UprightFont={* Light}]{Helvetica}
+%\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+\defaultfontfeatures{
+    Path = /usr/local/texlive/2017/texmf-dist/fonts/opentype/public/fontawesome/ }
+\usepackage{fontawesome}  % glyphs for contact info
+
+% CUSTOM COMMANDS
+  \newcommand{\titlerulethick}{{%
+    {\color{dark-gray} \titlerule[0.7mm] }%
+  }}
+
+  % old section title format
+  \titleformat{\section}{\fontsize{34pt}{40pt}\color{dark-gray}\normalfont}{}{0mm}{}[\titlerulethick]
+  %\titlespacing{\section}{0pt}{3pt}{3pt}
+
+  \newcommand{\namefont}[1]{{%
+    \fontsize{42pt}{50pt}\normalfont\textbf{#1}%
+  }}
+
+  \newcommand{\spacerule}{
+    \addlinespace[0.5em]
+    \midrule[0.5mm]
+    \addlinespace[0.5em]
+  }
+
+  \newcommand{\bigfont}[1]{{%
+    \fontsize{32pt}{38pt}\normalfont{#1} %
+  }}
+
+  \newcommand{\lightfont}[1]{{%
+    {\hlight\color{light-gray}#1}
+  }}
+
+  \newcommand{\contactinfo}{%
+    {\hlight\color{dark-gray}}
+  }
+
+  \newcommand{\lightsmall}[1]{{%
+    {\fontsize{11pt}{14pt}\hlight\color{light-gray}#1}
+  }}
+
+  \newcommand{\pubstyle}[1]{{%
+    {\fontsize{10pt}{13pt}\hlight\color{light-gray}#1}
+  }}
+
+  \newcommand{\lightbf}[1]{{%
+    \textbf{\lightfont{#1}}
+  }}
+
+  \newcommand{\emphasized}[1]{{%
+    {\fontsize{14pt}{18pt}\textbf{#1}}
+  }}
+
+  \newcommand{\position}[1]{{%
+    {\fontsize{14pt}{18pt} \hlight{#1}}
+  }}
+
+  \newcommand{\company}[1]{{%
+    {\fontsize{14pt}{18pt} \textbf{#1}}
+  }}
+
+  \newcommand{\headline}{
+    {\fontsize{14pt}{17pt}\bfseries\color{dark-gray}$headline$}
+  }
+
+  \newcommand{\name}{
+    \raggedright\fontsize{42pt}{42pt}\bfseries\flushleft\color{dark-gray}{$name$}
+  }
+
+  \newcommand{\lighthrule}{
+    {\color{light-gray}\par\rule[0mm]{\hsize}{0.5mm}\par\vspace{0.5em}}
+  }
+
+  \newcommand\Mybox[1]{%
+    \setlength\fboxsep{0pt}\fcolorbox{red}{white}{#1}
+  }
+
+% hack to remove bibliography numbering
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\renewenvironment{thebibliography}[1]
+     {\section*{\refname}%
+      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+      \list{}%
+           {\leftmargin0pt
+            \@openbib@code
+            \usecounter{enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%-------------------- BEGIN DOCUMENT ----------------------
+\begin{document}
+\nocite{dumas2012functional,boulouis2014anatomic}
+\pagestyle{empty} % non-numbered pages
+\font\fb=''[cmr10]'' %for use with \LaTeX command
+%---------- SPECIFY LENGTHS ----------
+\newlength{\leftwide}
+\setlength{\leftwide}{0.34\textwidth}
+%
+\newlength{\centerwide}
+\setlength{\centerwide}{0.33\textwidth}
+%
+\newlength{\rightwide}
+\setlength{\rightwide}{0.28\textwidth}
+%---------- TOP SECTION ----------
+\begin{tabular}[b]{@{}p{\leftwide}@{}p{\centerwide}@{}p{\rightwide}@{}}
+  % NAME (left)
+  \noindent
+  \begin{minipage}[b]{\leftwide}
+    \name
+  \end{minipage} & %
+  %
+  % HEADLINE (middle)
+  \begin{minipage}[b]{\centerwide}
+    \parbox[b][][b]{4.5cm}{\raggedright\headline}
+  \end{minipage} & %
+  %
+  % CONTACT INFO (right)
+  \begin{minipage}[b]{\rightwide}
+    \renewcommand\arraystretch{1.25}
+    \contactinfo
+    \begin{tabular}[b]{@{}cl@{}}
+      \faEnvelopeO & \href{mailto:$email$}{$email$}\\ %{}
+      \faPhone & $phone$\\
+      \faLinkedin & \href{http://www.linkedin.com/$linkedin$}{$linkedin$}
+    \end{tabular}
+  \end{minipage}
+\end{tabular}
+\lighthrule
+%---------- MAIN BODY ----------
+%---------- LEFT SIDE ----------
+%\Mybox{
+\begin{minipage}[t]{0.31\textwidth}
+  \raggedright
+  \begin{flushleft}
+  % ABOUT
+  \section{about}
+  \parbox[t][][t]{\textwidth}{
+    \lightsmall{
+    \begin{flushleft}
+      $about$
+    \end{flushleft}
+    }
+  }
+%
+%
+% EDUCATION
+\section{education}
+%
+%\setlength{\parskip}{1mm}
+$for(education)$
+    \lightbf{$education.year$} \\
+    \smallskip
+    \emphasized{$education.degree$} \\
+    \emphasized{$education.focus$} \\
+    \smallskip
+    \lightfont{\textbf{$education.institution$} \\
+    \emph{$education.department$}} \\ %
+    %
+    \bigskip %
+$endfor$
+%
+%
+  % SKILLS
+  \section{skills}
+  \hlight
+  \begin{sortedlist}
+    $for(skills)$
+    \sortitem{$skills$}
+    $endfor$
+  \end{sortedlist}
+\end{flushleft}
+\end{minipage}%
+%
+%---------- RIGHT SIDE ----------
+\newlength{\hwide}
+\newlength{\hwideright}
+\newlength{\buffer}
+\setlength{\buffer}{4pt plus 1pt minus 1pt}
+%
+%
+\begin{minipage}[t]{0.64\textwidth}
+  \section{experience}
+  %
+  \setlength{\hwide}{\dimexpr.5\hsize-4\tabcolsep}
+  \setlength{\hwideright}{\dimexpr\hwide+5\tabcolsep}
+  %
+  %  POSITIONS
+  \begin{tabular}{@{}p{\hwide}p{\hwideright}}
+    \arrayrulecolor{light-gray}
+    $for(experience)$
+      \parbox[t][][t]{\hwide}{%
+          \raggedright
+          \company{$experience.company$}\\
+          \vspace{\buffer}
+          \lightfont{%
+          $experience.years.start$ \textendash{} $experience.years.end$\\
+          $if(experience.location)$
+            $experience.location$\\
+          $endif$
+          \vspace{\buffer}}
+          $if(experience.group)$
+            \lightsmall{\emph{$experience.group$}}%
+          $endif$
+        } & %
+      \parbox[t][][t]{\hwideright}{%
+          \raggedright
+          \position{$experience.position$}\\
+          \vspace{\buffer}
+          \lightsmall{$experience.description$}
+        }\\
+        \spacerule
+    $endfor$
+  \end{tabular}
+%
+\section{publications}
+\vspace{-0.5em}
+\begingroup
+\renewcommand{\section}[2]{}%
+\pubstyle{
+  \bibliography{pubs}
+  \bibliographystyle{cvbib}
+}
+\endgroup
+\end{minipage}
+% ==========================================================
+%-------------------- END OF DOCUMENT ----------------------
+\end{document}
