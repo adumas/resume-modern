@@ -53,9 +53,9 @@ LATEXMK := latexmk $(if $(xelatex),-xelatex,-pdflatex="pdflatex %O %S") \
 ymls := $(filter-out $(addprefix $(yml_dir)/,$(EXCLUDE)),$(wildcard $(yml_dir)/*.yml))
 texs := $(patsubst %.yml,%.tex,$(ymls))
 pdfs := $(patsubst %.yml,%.pdf,$(ymls))
-#bibs := $(notdir $(wildcard $(yml_dir)/*.bib))
+bibs := $(wildcard $(yml_dir)/*.bib)
 
-$(texs): %.tex: %.yml
+$(texs): %.tex: %.yml $(bibs)
 	$(PANDOC) -o $@ $<	# pandoc template > .tex
 
 phony_pdfs := $(if $(always_latexmk),$(pdfs) $(notes_pdf))
@@ -63,6 +63,7 @@ phony_pdfs := $(if $(always_latexmk),$(pdfs) $(notes_pdf))
 .PHONY: $(phony_pdfs) all clean
 
 $(pdfs): %.pdf: %.tex
+	@echo $(bibs)
 	$(LATEXMK) $<
 
 all: $(pdfs)
