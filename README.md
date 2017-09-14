@@ -11,8 +11,16 @@ A modern resume for the modern person using pandoc and latex.
 
 ## Build Resume
 Easy as just:
+1. Rename and then edit the "sample_resume.yaml" file to suit your liking
+2. Fill out your publications in Bibtex citation format in the pubs.bib file
+3. Make the resume using pandoc and latexmk:
 ```
 $ make
 ```
+4. Enjoy
 
-... if you're me. Otherwise I think you should edit the document.
+## Inspired by
+... these wonderful sources inspired the layout, design, and mechanics of document generation:
+- format derived from: https://dribbble.com/damianwatracz
+- pandoc templating: http://mrzool.cc/writing/typesetting-automation/
+- Makefile: https://github.com/agoldst/memarticle/blob/master/Makefile
