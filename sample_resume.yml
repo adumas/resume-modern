@@ -1,0 +1,59 @@
+---
+# Personal details
+name:          Isaac Newton
+phone:         +44 1223 338400
+email:         isaac.newton@trin.cam.ac.uk
+linkedin:      'in/isaacnewton'
+
+headline:      |
+  Natural Philosopher
+
+about:         |
+  I invented calculus and gravity. I also wrote a few important papers on optics, planetary motion, and math.
+
+education:
+- year:        1667
+  degree:      MA
+  focus:       Mathematics and Physics
+  institution: Cambridge
+  department:  "Trinity College"
+- year:        1665
+  degree:      BA
+  focus:       Philosophy
+  institution: Cambridge
+  department:  "Trinity College"
+
+skills:
+  - calculus
+  - optics
+  - writing papers
+  - "casual ocular needle insertion"
+  - mechanics
+  - heliocentricity
+  - astronomy
+  - planetary motion
+  - "finding roots of functions"
+  - alchemy
+  - latin
+  - public speaking
+
+experience:
+- company:     Trinity College, Cambridge
+  years:
+    start:     '1669'
+    end:       '1702'
+  position:    Lucasian Professor of Mathematics
+  description: "Mainly mathematical sciences, but also the study of alchemy and biblical chronology. I generalized the binomial theorem to allow real exponents other than nonnegative integers. Also devised a method for finding successively better approximations to the roots (or zeroes) of a real-valued function, it's called ``Newton's method''"
+- company:     Trinity College
+  years:
+    start:     '1661'
+    end:       '1664'
+  position:    Valet
+  description: "Tending to my employer as his personal assistant. I was a subsizar to help pay for studies at Trinity College."
+- company:     Farm
+  years:
+    start:     '1659'
+    end:       '1661'
+  position:    Farmer
+  description: "Tedious and laborious farm work. I hated it. My mother made me do it after my dumb step-father died again."
+---
