@@ -53,9 +53,9 @@
             pageanchor=false]{hyperref}
 \definecolor{linkcolor}{gray}{0.2}
 \hypersetup{
-  pdfauthor={$name$},
-  pdfsubject={$name$ - Resume},
-  pdftitle={$name$ - Resume},
+  pdfauthor={Isaac Newton},
+  pdfsubject={Isaac Newton - Resume},
+  pdftitle={Isaac Newton - Resume},
   urlcolor=linkcolor,
   linkcolor=linkcolor
 }
@@ -128,11 +128,11 @@
   }}
 
   \newcommand{\headline}{
-    {\fontsize{14pt}{17pt}\bfseries\color{dark-gray}$headline$}
+    {\fontsize{14pt}{17pt}\bfseries\color{dark-gray}Natural Philosopher}
   }
 
   \newcommand{\name}{
-    \raggedright\fontsize{42pt}{42pt}\bfseries\flushleft\color{dark-gray}{$name$}
+    \raggedright\fontsize{42pt}{42pt}\bfseries\flushleft\color{dark-gray}{Isaac Newton}
   }
 
   \newcommand{\lighthrule}{
@@ -203,9 +203,9 @@
     \renewcommand\arraystretch{1.25}
     \contactinfo
     \begin{tabular}[b]{@{}cl@{}}
-      \faEnvelopeO & \href{mailto:$email$}{$email$}\\ %{}
-      \faPhone & $phone$\\
-      \faLinkedin & \href{http://www.linkedin.com/$linkedin$}{$linkedin$}
+      \faEnvelopeO & \href{mailto:isaac.newton@trin.cam.ac.uk}{isaac.newton@trin.cam.ac.uk}\\ %{}
+      \faPhone & +44 1223 338400\\
+      \faLinkedin & \href{http://www.linkedin.com/in/isaacnewton}{in/isaacnewton}
     \end{tabular}
   \end{minipage}
 \end{tabular}
@@ -221,7 +221,8 @@
   \parbox[t][][t]{\textwidth}{
     \lightsmall{
     \begin{flushleft}
-      $about$
+      I invented calculus and gravity. I also wrote a few important papers on
+      optics, planetary motion, and math.
     \end{flushleft}
     }
   }
@@ -231,27 +232,43 @@
 \section{education}
 %
 %\setlength{\parskip}{1mm}
-$for(education)$
-    \lightbf{$education.year$} \\
+    \lightbf{1667} \\
     \smallskip
-    \emphasized{$education.degree$} \\
-    \emphasized{$education.focus$} \\
+    \emphasized{MA} \\
+    \emphasized{Mathematics and Physics} \\
     \smallskip
-    \lightfont{\textbf{$education.institution$} \\
-    \emph{$education.department$}} \\ %
+    \lightfont{\textbf{Cambridge} \\
+    \emph{Trinity College}} \\ %
     %
     \bigskip %
-$endfor$
+    \lightbf{1665} \\
+    \smallskip
+    \emphasized{BA} \\
+    \emphasized{Philosophy} \\
+    \smallskip
+    \lightfont{\textbf{Cambridge} \\
+    \emph{Trinity College}} \\ %
+    %
+    \bigskip %
 %
 %
   % SKILLS
   \section{skills}
   \hlight
   \begin{sortedlist}
-    $for(skills)$
-    \sortitem{$skills$}
-    $endfor$
-  \end{sortedlist}
+        \sortitem{calculus}
+        \sortitem{optics}
+        \sortitem{writing papers}
+        \sortitem{casual ocular needle insertion}
+        \sortitem{mechanics}
+        \sortitem{heliocentricity}
+        \sortitem{astronomy}
+        \sortitem{planetary motion}
+        \sortitem{finding roots of functions}
+        \sortitem{alchemy}
+        \sortitem{latin}
+        \sortitem{public speaking}
+      \end{sortedlist}
 \end{flushleft}
 \end{minipage}%
 %
@@ -271,30 +288,58 @@ $endfor$
   %  POSITIONS
   \begin{tabular}{@{}p{\hwide}p{\hwideright}}
     \arrayrulecolor{light-gray}
-    $for(experience)$
-      \parbox[t][][t]{\hwide}{%
+          \parbox[t][][t]{\hwide}{%
           \raggedright
-          \company{$experience.company$}\\
+          \company{Trinity College, Cambridge}\\
           \vspace{\buffer}
           \lightfont{%
-          $experience.years.start$ \textendash{} $experience.years.end$\\
-          $if(experience.location)$
-            $experience.location$\\
-          $endif$
-          \vspace{\buffer}}
-          $if(experience.group)$
-            \lightsmall{\emph{$experience.group$}}%
-          $endif$
-        } & %
+          1669 \textendash{} 1702\\
+                    \vspace{\buffer}}
+                  } & %
       \parbox[t][][t]{\hwideright}{%
           \raggedright
-          \position{$experience.position$}\\
+          \position{Lucasian Professor of Mathematics}\\
           \vspace{\buffer}
-          \lightsmall{$experience.description$}
+          \lightsmall{Mainly mathematical sciences, but also the study of alchemy and biblical
+chronology. I generalized the binomial theorem to allow real exponents
+other than nonnegative integers. Also devised a method for finding
+successively better approximations to the roots (or zeroes) of a
+real-valued function, it's called ``Newton's method''}
         }\\
         \spacerule
-    $endfor$
-  \end{tabular}
+          \parbox[t][][t]{\hwide}{%
+          \raggedright
+          \company{Trinity College}\\
+          \vspace{\buffer}
+          \lightfont{%
+          1661 \textendash{} 1664\\
+                    \vspace{\buffer}}
+                  } & %
+      \parbox[t][][t]{\hwideright}{%
+          \raggedright
+          \position{Valet}\\
+          \vspace{\buffer}
+          \lightsmall{Tending to my employer as his personal assistant. I was a subsizar to
+help pay for studies at Trinity College.}
+        }\\
+        \spacerule
+          \parbox[t][][t]{\hwide}{%
+          \raggedright
+          \company{Farm}\\
+          \vspace{\buffer}
+          \lightfont{%
+          1659 \textendash{} 1661\\
+                    \vspace{\buffer}}
+                  } & %
+      \parbox[t][][t]{\hwideright}{%
+          \raggedright
+          \position{Farmer}\\
+          \vspace{\buffer}
+          \lightsmall{Tedious and laborious farm work. I hated it. My mother made me do it
+after my dumb step-father died again.}
+        }\\
+        \spacerule
+      \end{tabular}
 %
 \section{publications}
 \vspace{-0.5em}
