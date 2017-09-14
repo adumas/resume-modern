@@ -173,7 +173,7 @@
 %
 %-------------------- BEGIN DOCUMENT ----------------------
 \begin{document}
-\nocite{dumas2012functional,boulouis2014anatomic}
+\nocite{$publications$}
 \pagestyle{empty} % non-numbered pages
 \font\fb=''[cmr10]'' %for use with \LaTeX command
 %---------- SPECIFY LENGTHS ----------

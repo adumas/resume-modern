@@ -55,7 +55,7 @@ texs := $(patsubst %.yml,%.tex,$(ymls))
 pdfs := $(patsubst %.yml,%.pdf,$(ymls))
 bibs := $(wildcard $(yml_dir)/*.bib)
 
-$(texs): %.tex: %.yml $(bibs)
+$(texs): %.tex: %.yml $(bibs) $(PANDOC_TMPL)
 	$(PANDOC) -o $@ $<	# pandoc template > .tex
 
 phony_pdfs := $(if $(always_latexmk),$(pdfs) $(notes_pdf))
