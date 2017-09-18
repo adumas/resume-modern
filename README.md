@@ -19,6 +19,8 @@ $ make
 ```
 4. Enjoy
 
+![sample-resume image](sample-resume.png)
+
 ## Inspired by
 ... these wonderful sources inspired the layout, design, and mechanics of document generation:
 - format derived from: https://dribbble.com/damianwatracz
