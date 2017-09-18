@@ -19,7 +19,7 @@ $ make
 ```
 4. Enjoy
 
-![sample-resume image](sample-resume.png)
+![sample_resume image](sample_resume.png?raw=true)
 
 ## Inspired by
 ... these wonderful sources inspired the layout, design, and mechanics of document generation:
